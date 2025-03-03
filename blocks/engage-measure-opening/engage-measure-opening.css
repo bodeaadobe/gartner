@@ -1,0 +1,114 @@
+.engage-measure-opening {
+  text-decoration: none;
+  outline: none;
+  color: #ffffff;
+}
+
+.engage-measure-opening a {
+  text-decoration: none;
+  outline: none;
+}
+
+.engage-measure-opening a {
+  text-decoration: none;
+  outline: none;
+}
+
+.engage-measure-opening > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.engage-measure-opening > ul > li {
+  background-color: var(--background-color);
+}
+
+.engage-measure-opening > ul > li img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: right top;
+}
+
+.engage-measure-opening .engage-measure-opening-image {
+  line-height: 0;
+}
+
+.engage-measure-opening .engage-measure-opening-body {
+  margin: 20px;
+  width: 32%;
+  min-width: 525px;
+  border-radius: 8px;
+  position: absolute;
+  top: 20%;
+  right: 70px;
+  z-index: 11;
+  background: #000000;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.engage-measure-opening .engage-measure-opening-body h3 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+.engage-measure-opening .engage-measure-opening-body p {
+  margin: 40px 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: var(--heading-font-family);
+}
+
+
+
+.emo-container {
+  display: block;
+}
+
+.emo-container .emo-form {
+  display: block;
+}
+
+.emo-form .btn-group-toggle {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #292929;
+}
+
+.emo-form input {
+  display: none;
+}
+
+.emo-form .radio-select {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 34px;
+  line-height: 70px;
+  font-family: var(--heading-font-family);
+  color: #727272;
+  cursor: pointer;
+}
+
+.emo-form .radio-select.active {
+  background-color: #35B28C;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.engage-measure-opening-body .form-button {
+  display: block;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  width: fit-content;
+  font-size: 15px;
+  padding: 7px 24px;
+  border-radius: 40px;
+  margin: 50px 0 0;
+  text-decoration: none;
+  cursor: pointer;
+}

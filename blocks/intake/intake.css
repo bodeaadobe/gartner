@@ -17,7 +17,9 @@
 
 .intake > ul > li img {
   width: 100%;
-  object-fit: contain;
+  height: 100vh;
+  object-fit: cover;
+  object-position: right top;
 }
 
 .intake .intake-image {
@@ -40,12 +42,12 @@
 
 .intake .intake-body h3 {
   font-size: 23px;
-  margin: 10px 0;
+  margin: 0 0 10px;
   color: var(--dark-color);
 }
 
 .intake .intake-body p {
-  margin: 10px 0;
+  margin: 10px 0 15px;
   font-size: 14px;
 }
 
@@ -62,8 +64,8 @@
 
 .intake-form .form-heading {
   font-size: 16px;
-  margin: 10px 0;
-  line-height: 32px;
+  margin: 15px 0 5px;
+  line-height: 20px;
   color: var(--dark-color);
   font-family: var(--heading-font-family);
 }
@@ -100,7 +102,7 @@
   font-size: 15px;
   padding: 8px 24px;
   border-radius: 40px;
-  margin: 15px auto 0;
+  margin: 10px auto 0;
   text-decoration: none;
   cursor: pointer;
 }
