@@ -13,15 +13,16 @@
 :root {
   /* colors */
   --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --light-color: #F6F6F6;
+  --dark-color: #000000;
+  --text-color: #2C2C2C;
+  --link-color: #0265DC;
+  --link-hover-color: #0265DC;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: adobe-clean, roboto, roboto-fallback, sans-serif;
+  --heading-font-family: adobe-clean-bold, adobe-clean, roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --light-font-family: adobe-clean-light, roboto, roboto-fallback, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -78,6 +79,9 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body.appear {
@@ -86,6 +90,10 @@ body.appear {
 
 header {
   height: var(--nav-height);
+  display: none;
+}
+footer {
+  display: none;
 }
 
 header .header,
@@ -103,13 +111,15 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+strong {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   scroll-margin: 40px;
+  color: var(--dark-color);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -229,13 +239,13 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 main > .section:first-of-type {
@@ -244,7 +254,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0;
   }
 }
 
@@ -253,5 +263,22 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 0;
+}
+
+
+/* Adobe X Bodea Logo*/
+.section ul::before {
+  content: "";
+  background-image: url('../icons/Adobe_x_Bodea.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  z-index: 1111;
+  left: 70px;
+  top: 70px;
+  width: auto;
+  min-width: 45%;
+  height: 60px;
 }

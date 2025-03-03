@@ -1,0 +1,148 @@
+
+.intake a {
+  text-decoration: none;
+  outline: none;
+}
+
+.intake > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.intake > ul > li {
+  background-color: var(--background-color);
+}
+
+.intake > ul > li img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.intake .intake-image {
+  line-height: 0;
+}
+
+.intake .intake-body {
+  margin: 20px;
+  width: 43%;
+  min-width: 600px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 11;
+  background: #ffffff;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+.intake .intake-body h3 {
+  font-size: 23px;
+  margin: 10px 0;
+  color: var(--dark-color);
+}
+
+.intake .intake-body p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+
+
+.intake-container {
+  display: block;
+  border-top: 1px solid #DEDEDE;
+}
+
+.intake-container .intake-form {
+  display: block;
+}
+
+.intake-form .form-heading {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 32px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+}
+
+.intake-form .form-group {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.intake-form .field-label {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 20px 0 5px;
+}
+
+.intake-form .field-text {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #DEDEDE;
+  border-radius: 6px;
+
+}
+.intake-form .form-button {
+  display: block;
+  background-color: #000000;
+  color: #ffffff;
+  width: fit-content;
+  font-size: 15px;
+  padding: 8px 24px;
+  border-radius: 40px;
+  margin: 15px auto 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.intake-form .radio-group {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.intake-form .radio-group .group-label {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 20px 0 5px;
+}
+.intake-form .radio-group .field-label {
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
+  vertical-align: middle;
+}
+.intake-form .radio-group .field-label span {
+  display: inline-block;
+  font-size: 16px;
+  color: var(--dark-color);
+}
+.intake-form .radio-group .field-label div {
+  display: inline-block;
+  font-size: 14px;
+  color:var(--text-color);
+}
+
+
+.intake-form .checkbox-group {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.intake-form .checkbox-group .field-label {
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px;
+  vertical-align: middle;
+}

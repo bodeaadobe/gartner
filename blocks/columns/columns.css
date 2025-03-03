@@ -1,3 +1,39 @@
+
+
+.columns-container {
+  background-color: #F6F6F6;
+  margin: 0;
+  padding: 4rem;
+}
+
+.columns-container .default-content-wrapper,
+.columns-container .columns-wrapper {
+  width: 60%;
+  margin: auto;
+}
+
+.columns-container h1,
+.columns-container h2,
+.columns-container h3 {
+  background-color: #F6F6F6;
+  margin: 0;
+  padding: 0;
+}
+.columns-container h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+
+.columns p {
+  font-size: 16px;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--heading-font-family);
+}
+
+
 .columns > div {
   display: flex;
   flex-direction: column;
