@@ -41,7 +41,27 @@ emcForm.innerHTML =  '<form class="emc-form">'+
             '<div class="emc-subheading form-subheading">Or click the finish button below to exit the experience.</div>'+
             '<div class="emc-subheading form-subheading">If you complete both tasks, you’ll receive an exclusive giveaway.</div>'+
 
-            '<a class="form-button emc-btn">Finish</a>'+
+            '<a class="form-button emcbtn">Finish</a>'+
           '</form>';
 
 document.getElementsByClassName("engage-measure-completion")[0].getElementsByTagName("p")[0].parentElement.appendChild(emcForm);
+
+
+// Trigger form submit on button click
+let emcBTN = document.getElementsByClassName("emcbtn")[0];
+
+emcBTN.onclick = async function() {
+  console.log("emcBTN btn clicked");
+  redirectTo();
+}
+
+// Redirect to next page
+function redirectTo() {
+  let radioSelect = document.querySelector('input[name="emc"]:checked').value;
+
+  alert("Thank You!");
+  console.log("radioSelect: ", radioSelect);
+  console.log("window.location.origin: ", window.location.origin);
+
+  window.location = window.location.origin;
+}

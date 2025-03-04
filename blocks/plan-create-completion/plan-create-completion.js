@@ -41,7 +41,27 @@ pccForm.innerHTML =  '<form class="pcc-form">'+
             '<div class="pcc-subheading form-subheading">Or click the finish button below to exit the experience.</div>'+
             '<div class="pcc-subheading form-subheading">If you complete both tasks, you’ll receive an exclusive giveaway.</div>'+
 
-            '<a class="form-button pcc-btn">Finish</a>'+
+            '<a class="form-button pccbtn">Finish</a>'+
           '</form>';
 
 document.getElementsByClassName("plan-create-completion")[0].getElementsByTagName("p")[0].parentElement.appendChild(pccForm);
+
+
+// Trigger form submit on button click
+let pccBTN = document.getElementsByClassName("pccbtn")[0];
+
+pccBTN.onclick = async function() {
+  console.log("pccBTN btn clicked");
+  redirectTo();
+}
+
+// Redirect to next page
+function redirectTo() {
+  let radioSelect = document.querySelector('input[name="pcc"]:checked').value;
+
+  alert("Thank You!");
+  console.log("radioSelect: ", radioSelect);
+  console.log("window.location.origin: ", window.location.origin);
+
+  window.location = window.location.origin;
+}

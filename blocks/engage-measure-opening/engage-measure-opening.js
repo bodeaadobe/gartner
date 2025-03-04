@@ -18,7 +18,6 @@ export default function decorate(block) {
 }
 
 
-
 /* Append Form */
 console.log("Plan & Create Form");
 let emo = document.createElement("div");
@@ -37,19 +36,35 @@ emo.innerHTML =  '<form class="emo-form">'+
           '</form>';
 document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].parentElement.prepend(emo);
 
-
 // Append button
 let emoBtn = document.createElement("a");
-emoBtn.setAttribute("class", "form-button emo-btn");
+emoBtn.setAttribute("class", "form-button emobtn");
 emoBtn.innerText =  'Get started';
 document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(emoBtn);
 
-
 /* Radio button toggle */
-var radioBtn = document.querySelectorAll(".radio-select");
+let radioBtn = document.querySelectorAll(".radio-select");
 radioBtn.forEach(element => {
   element.addEventListener('click', () => {
     element.parentElement.getElementsByClassName("active")[0].classList.remove("active");
     element.classList.add("active");
   });
 });
+
+// Trigger form submit on button click
+let emoBTN = document.getElementsByClassName("emobtn")[0];
+
+emoBTN.onclick = async function() {
+  console.log("emoBTN btn clicked");
+  redirectTo();
+}
+
+// Redirect to next page
+function redirectTo() {
+  let radioSelect = document.querySelector('input[name="emo"]:checked').value;
+
+  console.log("radioSelect: ", radioSelect);
+  console.log("window.location.origin: ", window.location.origin);
+
+  window.location = window.location.origin+"/engage-measure-completion";
+}

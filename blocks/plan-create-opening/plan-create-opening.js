@@ -18,7 +18,6 @@ export default function decorate(block) {
 }
 
 
-
 /* Append Form */
 console.log("Plan & Create Form");
 let pco = document.createElement("div");
@@ -38,19 +37,35 @@ pco.innerHTML =  '<form class="pco-form">'+
           '</form>';
 document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].parentElement.prepend(pco);
 
-
 // Append button
 let pcoBtn = document.createElement("a");
-pcoBtn.setAttribute("class", "form-button pco-btn");
+pcoBtn.setAttribute("class", "form-button pcobtn");
 pcoBtn.innerText =  'Get started';
 document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(pcoBtn);
 
-
 /* Radio button toggle */
-var radioBtn = document.querySelectorAll(".radio-select");
+let radioBtn = document.querySelectorAll(".radio-select");
 radioBtn.forEach(element => {
   element.addEventListener('click', () => {
     element.parentElement.getElementsByClassName("active")[0].classList.remove("active");
     element.classList.add("active");
   });
 });
+
+// Trigger form submit on button click
+let pcoBTN = document.getElementsByClassName("pcobtn")[0];
+
+pcoBTN.onclick = async function() {
+  console.log("pcoBTN btn clicked");
+  redirectTo();
+}
+
+// Redirect to next page
+function redirectTo() {
+  let radioSelect = document.querySelector('input[name="pco"]:checked').value;
+
+  console.log("radioSelect: ", radioSelect);
+  console.log("window.location.origin: ", window.location.origin);
+
+  window.location = window.location.origin+"/plan-create-completion";
+}
