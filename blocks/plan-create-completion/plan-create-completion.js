@@ -12,7 +12,7 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  //ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
 }
@@ -39,7 +39,7 @@ pccForm.innerHTML =  '<form class="pcc-form">'+
             '</div>'+
 
             '<div class="pcc-subheading form-subheading">Or click the finish button below to exit the experience.</div>'+
-            '<div class="pcc-subheading form-subheading">If you complete both tasks, you’ll receive an exclusive giveaway.</div>'+
+            '<div class="pcc-subheading form-subheading">Do not miss the chance to grab your exclusive giveaway upon completing both the tasks.</div>'+
 
             '<a class="form-button pccbtn">Finish</a>'+
           '</form>';

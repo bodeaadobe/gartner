@@ -12,7 +12,7 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+ //ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
 }
@@ -40,7 +40,7 @@ document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("
 // Append button
 let pcoBtn = document.createElement("a");
 pcoBtn.setAttribute("class", "form-button pcobtn");
-pcoBtn.innerText =  'Get started';
+pcoBtn.innerText =  'Task 1: Get started';
 document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(pcoBtn);
 
 /* Radio button toggle */
@@ -49,6 +49,30 @@ radioBtn.forEach(element => {
   element.addEventListener('click', () => {
     element.parentElement.getElementsByClassName("active")[0].classList.remove("active");
     element.classList.add("active");
+
+    let toggleBtnText = element.getElementsByTagName("span")[0].innerText;
+    console.log("toggleBtnText: ", toggleBtnText);
+
+    if(toggleBtnText == "Create") {
+      document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].innerText = "You’re a performance marketer tasked with launching a display campaign to increase coverage for finance stakeholders. Use Adobe GenStudio for Performance Marketing to create ads from pre-approved assets in Adobe Express and Content Hub. Review for brand compliance in a matter of seconds and publish in record time.";
+      pcoBTN.innerText = "Task 2: Get started";
+
+      var sourceList = document.getElementsByClassName("plan-create-opening")[0].querySelectorAll('picture source');
+      sourceList.forEach((source)=> {
+          source.setAttribute('srcset', "../../icons/create-opening.jpeg");
+      }); 
+      document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("img")[0].src = "../../icons/create-opening.jpeg";
+    } else if(toggleBtnText == "Plan") {
+      document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].innerText = "You're a demand marketer tasked with analyzing buying group completeness for TalentSync, the HR software you need to cross-sell to your existing IT customer base. Using Adobe Journey Optimizer B2B Edition, you will gather intelligent insights and assess stakeholder contact coverage for TalentSync to inform your campaign planning.";
+      pcoBTN.innerText = "Task 1: Get started";
+
+      var sourceList = document.getElementsByClassName("plan-create-opening")[0].querySelectorAll('picture source');
+      sourceList.forEach((source)=> {
+          source.setAttribute('srcset', "../../icons/pco.png");
+      }); 
+      document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("picture")[0].src = "../../icons/pco.png";
+    }
+
   });
 });
 

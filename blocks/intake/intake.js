@@ -12,7 +12,7 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  //ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
 }
@@ -26,39 +26,43 @@ intakeForm.innerHTML =  '<form class="intake-form">'+
             '<div class="intake-heading form-heading">To get started, please fill the fields below. </div>'+
             
             '<div class="form-group">'+
-              '<label for="fname" class="field-label">First Name*</label>'+
+              '<label for="fname" class="field-label">First Name</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="fname" placeholder="Enter your first name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="lname" class="field-label">Last Name*</label>'+
+              '<label for="lname" class="field-label">Last Name</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="lname" placeholder="Enter your last name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="company" class="field-label">Company*</label>'+
+              '<label for="company" class="field-label">Company</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="company" placeholder="Enter your company name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="bemail" class="field-label">Business email*</label>'+
+              '<label for="bemail" class="field-label">Business email</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="bemail" placeholder="Enter your mail address" required />'+
             '</div>'+
 
             '<div class="radio-group">'+
-              '<label for="bemail" class="group-label">Select the campaign workstream you want to engage with today</label>'+
+              '<label for="bemail" class="group-label">Select the campaign workstream you want to start with.</label>'+
 
-              '<input type="radio" id="plan-and-create" name="intake-campaign" value="Plan and Create">'+
-              '<label for="plan-and-create" class="field-label">'+
-                '<span>Plan and Create</span>'+
-                '<div>Leverage insights to shift your B2B go-to-market strategy, and go on to generate display ads with approved assets.</div>'+
-              '</label>'+
+              '<div class="radio-row">'+
+                '<input type="radio" id="plan-and-create" name="intake-campaign" value="Plan and Create">'+
+                '<label for="plan-and-create" class="field-label">'+
+                  '<span>Plan and Create</span>'+
+                  '<div>Leverage insights to shift your B2B go-to-market strategy, and go on to generate display ads with approved assets.</div>'+
+                '</label>'+
+              '</div>'+
 
-              '<input type="radio" id="engage-and-measure" name="intake-campaign" value="Engage and Measure">'+
-              '<label for="engage-and-measure" class="field-label">'+
-                '<span>Engage and Measure</span>'+
-                '<div>Target content across email and then identify key insights from your activities.</div>'+
-              '</label>'+
+              '<div class="radio-row">'+
+                '<input type="radio" id="engage-and-measure" name="intake-campaign" value="Engage and Measure">'+
+                '<label for="engage-and-measure" class="field-label">'+
+                  '<span>Engage and Measure</span>'+
+                  '<div>Target content across email and then identify key insights from your activities.</div>'+
+                '</label>'+
+              '</div>'+
 
             '</div>'+
             
