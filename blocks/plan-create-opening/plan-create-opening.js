@@ -26,11 +26,11 @@ pco.innerHTML =  '<form class="pco-form">'+
 
             '<div class="btn-group btn-group-toggle" data-toggle="buttons">'+
               '<label class="btn radio-select active">'+ 
-                '<input type="radio" name="pco" autocomplete="off" value="Plan" checked />'+
+                '<input type="radio" name="pco" autocomplete="off" value="Plan" disabled="disabled" checked="checked" />'+
                 '<span>Plan</span>'+
               '</label>'+
               '<label class="btn radio-select">'+
-                '<input type="radio" name="pco" autocomplete="off" value="Create" />'+
+                '<input type="radio" name="pco" autocomplete="off" value="Create" disabled="disabled" />'+
                 '<span>Create</span>'+
               '</label>'+
             '</div>'+
@@ -43,7 +43,8 @@ pcoBtn.setAttribute("class", "form-button pcobtn");
 pcoBtn.innerText =  'Task 1: Get started';
 document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(pcoBtn);
 
-/* Radio button toggle */
+/* 
+//Radio button toggle
 let radioBtn = document.querySelectorAll(".radio-select");
 radioBtn.forEach(element => {
   element.addEventListener('click', () => {
@@ -75,6 +76,7 @@ radioBtn.forEach(element => {
 
   });
 });
+ */
 
 // Trigger form submit on button click
 let pcoBTN = document.getElementsByClassName("pcobtn")[0];
@@ -84,12 +86,43 @@ pcoBTN.onclick = async function() {
   redirectTo();
 }
 
-// Redirect to next page
+// Toogle & Redirect
 function redirectTo() {
   let radioSelect = document.querySelector('input[name="pco"]:checked').value;
-
   console.log("radioSelect: ", radioSelect);
-  console.log("window.location.origin: ", window.location.origin);
 
-  window.location = window.location.origin+"/plan-create-completion";
+  if(radioSelect == "Plan") {
+    // open link1 in new tab
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/insights-dashboard/intelligent", '_blank').focus();
+    // progress to next tab
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].classList.add("active");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].getElementsByTagName("input")[0].setAttribute("checked", "checked");
+
+    document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].innerText = "You’re a performance marketer tasked with launching a display campaign to increase coverage for finance stakeholders. Use Adobe GenStudio for Performance Marketing to create ads from pre-approved assets in Adobe Express and Content Hub. Review for brand compliance in a matter of seconds and publish in record time.";
+    pcoBTN.innerText = "Task 2: Get started";
+
+    var sourceList = document.getElementsByClassName("plan-create-opening")[0].querySelectorAll('picture source');
+    sourceList.forEach((source)=> {
+        source.setAttribute('srcset', "../../icons/create-opening.jpeg");
+    }); 
+    document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("img")[0].src = "../../icons/create-opening.jpeg";
+  } else if(radioSelect == "Create") {
+    // Update jsonSummit on local storage
+    let jsonToUpdate = JSON.parse(localStorage.getItem("jsonSummit"));
+    jsonToUpdate["plan and create"] = true;
+    localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
+    console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
+
+    // open link2 in new tab
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/genstudio/create", '_blank').focus();
+    
+    // progress to next page
+    if(jsonToUpdate["engage and measure"]) {
+      window.location = window.location.origin+"/final-completion";
+    } else {
+      window.location = window.location.origin+"/plan-create-completion";
+    }
+  }
 }

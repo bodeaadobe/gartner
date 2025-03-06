@@ -94,8 +94,10 @@ submitBtn.onclick = async function() {
   jsonSummit.fname = fname;
   jsonSummit.lname = lname;
   jsonSummit.companyname = company;
-  jsonSummit["plan and create"] = radioSelect=="Plan and Create"?true:false;
-  jsonSummit["engage and measure"] = radioSelect=="Engage and Measure"?true:false;
+  jsonSummit["plan and create"] = false;
+  jsonSummit["engage and measure"] = false;
+  //jsonSummit["plan and create"] = radioSelect=="Plan and Create"?true:false;
+  //jsonSummit["engage and measure"] = radioSelect=="Engage and Measure"?true:false;
 
   localStorage.setItem("jsonSummit", JSON.stringify(jsonSummit));
   console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));

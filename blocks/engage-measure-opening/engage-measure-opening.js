@@ -19,17 +19,17 @@ export default function decorate(block) {
 
 
 /* Append Form */
-console.log("Plan & Create Form");
+console.log("Engage & Measure Form");
 let emo = document.createElement("div");
 emo.setAttribute("class", "emo-container");
 emo.innerHTML =  '<form class="emo-form">'+
             '<div class="btn-group btn-group-toggle" data-toggle="buttons">'+
               '<label class="btn radio-select active">'+ 
-                '<input type="radio" name="emo" autocomplete="off" value="Engage" checked />'+
+                '<input type="radio" name="emo" autocomplete="off" value="Engage" disabled="disabled" checked="checked" />'+
                 '<span>Engage</span>'+
               '</label>'+
               '<label class="btn radio-select">'+
-                '<input type="radio" name="emo" autocomplete="off" value="Measure" />'+
+                '<input type="radio" name="emo" autocomplete="off" value="Measure" disabled="disabled" />'+
                 '<span>Measure</span>'+
               '</label>'+
             '</div>'+
@@ -42,7 +42,8 @@ emoBtn.setAttribute("class", "form-button emobtn");
 emoBtn.innerText =  'Task 3: Get started';
 document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(emoBtn);
 
-/* Radio button toggle */
+/* 
+//Radio button toggle
 let radioBtn = document.querySelectorAll(".radio-select");
 radioBtn.forEach(element => {
   element.addEventListener('click', () => {
@@ -74,6 +75,7 @@ radioBtn.forEach(element => {
 
   });
 });
+*/
 
 // Trigger form submit on button click
 let emoBTN = document.getElementsByClassName("emobtn")[0];
@@ -83,12 +85,67 @@ emoBTN.onclick = async function() {
   redirectTo();
 }
 
-// Redirect to next page
+// Toogle & Redirect
 function redirectTo() {
   let radioSelect = document.querySelector('input[name="emo"]:checked').value;
-
   console.log("radioSelect: ", radioSelect);
-  console.log("window.location.origin: ", window.location.origin);
 
-  window.location = window.location.origin+"/engage-measure-completion";
+  if(radioSelect == "Engage") {
+    // open link1 in new tab
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/insights-dashboard/intelligent", '_blank').focus();
+    // progress to next tab
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].classList.add("active");
+    document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].getElementsByTagName("input")[0].setAttribute("checked", "checked");
+
+    document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].innerText = "Now it’s time to analyze your results. You’ve been tasked with identifying key insights for the Bodea campaign. Use the Adobe Journey Optimizer Account Insights Dashboard to assess a comprehensive view of buying group and account metrics and evolve your B2B go-to-market strategy.";
+    emoBtn.innerText = "Task 4: Get started";
+
+    var sourceList = document.getElementsByClassName("engage-measure-opening")[0].querySelectorAll('picture source');
+    sourceList.forEach((source)=> {
+        source.setAttribute('srcset', "../../icons/measure-opening.jpeg");
+    }); 
+    document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("img")[0].src = "../../icons/measure-opening.jpeg";
+  } else if(radioSelect == "Measure") {
+    // Update jsonSummit on local storage
+    let jsonToUpdate = JSON.parse(localStorage.getItem("jsonSummit"));
+    jsonToUpdate["engage and measure"] = true;
+    localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
+    console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
+
+    // open link1 in new tab
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/insights-dashboard/intelligent", '_blank').focus();
+    
+    // progress to next page
+    if(jsonToUpdate["plan and create"]) {
+      window.location = window.location.origin+"/final-completion";
+    } else {
+      window.location = window.location.origin+"/engage-measure-completion";
+    }
+  }
 }
+
+
+/* Video on page load */
+console.log("video on page load");
+let vopl = document.createElement("div");
+vopl.setAttribute("class", "vopl-container");
+vopl.innerHTML =  '<div class="video-block">'+
+      '<div class="video-header">'+
+        '<a class="video-close">x</a>'+
+          '<video controls="" name="media">'+
+            '<source src="https://s7d9.scene7.com/is/content/AdobeDemoLab/ContentGenerationwithAEM/CA-AEM.mp4" type="video/mp4">'+
+          '</video>'+
+      '</div>'+
+  '</div>';
+document.getElementsByTagName("body")[0].appendChild(vopl);
+
+
+// Close video on click
+let closeVideo = document.getElementsByClassName("video-close")[0];
+closeVideo.onclick = async function() {
+  console.log("closeVideo btn clicked");
+  document.getElementsByClassName("vopl-container")[0].style.display="none";
+}
+

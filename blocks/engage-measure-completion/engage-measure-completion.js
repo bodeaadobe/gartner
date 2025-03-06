@@ -28,12 +28,12 @@ emcForm.innerHTML =  '<form class="emc-form">'+
             '<div class="emc-heading form-heading">Continue the experience and work on the remaining tasks for the Bodea cross-sell campaign:</div>'+
 
             '<div class="btn-group btn-group-toggle" data-toggle="buttons">'+
-              '<label class="btn radio-select">'+ 
-                '<input type="radio" name="emc" autocomplete="off" value="Plan & Create" disabled />'+
+              '<label class="btn radio-select clickable">'+ 
+                '<input type="radio" name="emc" autocomplete="off" value="Plan & Create" disabled="disabled" />'+
                 '<span>Plan & Create</span>'+
               '</label>'+
               '<label class="btn radio-select active">'+
-                '<input type="radio" name="emc" autocomplete="off" value="Engage & Measure" checked />'+
+                '<input type="radio" name="emc" autocomplete="off" value="Engage & Measure" disabled="disabled" checked="checked" />'+
                 '<span>Engage & Measure</span>'+
               '</label>'+
             '</div>'+
@@ -45,6 +45,14 @@ emcForm.innerHTML =  '<form class="emc-form">'+
           '</form>';
 
 document.getElementsByClassName("engage-measure-completion")[0].getElementsByTagName("p")[0].parentElement.appendChild(emcForm);
+
+
+// On click of clickable radio button
+let boxClickable = document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("clickable")[0];
+boxClickable.onclick = async function() {
+  console.log("boxClickable btn clicked");
+  window.location = window.location.origin+"/plan-create-opening";
+}
 
 
 // Trigger form submit on button click

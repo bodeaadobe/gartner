@@ -29,11 +29,11 @@ pccForm.innerHTML =  '<form class="pcc-form">'+
 
             '<div class="btn-group btn-group-toggle" data-toggle="buttons">'+
               '<label class="btn radio-select active">'+ 
-                '<input type="radio" name="pcc" autocomplete="off" value="Plan & Create" checked />'+
+                '<input type="checkbox" name="pc-checkbox" autocomplete="off" value="Plan & Create" disabled="disabled" checked="checked" />'+
                 '<span>Plan & Create</span>'+
               '</label>'+
-              '<label class="btn radio-select">'+
-                '<input type="radio" name="pcc" autocomplete="off" value="Engage & Measure" disabled />'+
+              '<label class="btn radio-select clickable">'+
+                '<input type="checkbox" name="em-checkbox" autocomplete="off" value="Engage & Measure" disabled="disabled" />'+
                 '<span>Engage & Measure</span>'+
               '</label>'+
             '</div>'+
@@ -45,6 +45,25 @@ pccForm.innerHTML =  '<form class="pcc-form">'+
           '</form>';
 
 document.getElementsByClassName("plan-create-completion")[0].getElementsByTagName("p")[0].parentElement.appendChild(pccForm);
+
+/* 
+//Radio button toggle 
+let radioBtn = document.querySelectorAll(".radio-select");
+radioBtn.forEach(element => {
+  element.addEventListener('click', () => {
+    element.parentElement.getElementsByClassName("active")[0].classList.remove("active");
+    element.classList.add("active");
+
+  })
+});
+*/
+
+// On click of clickable radio button
+let boxClickable = document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("clickable")[0];
+boxClickable.onclick = async function() {
+  console.log("boxClickable btn clicked");
+  window.location = window.location.origin+"/engage-measure-opening";
+}
 
 
 // Trigger form submit on button click
@@ -64,4 +83,26 @@ function redirectTo() {
   console.log("window.location.origin: ", window.location.origin);
 
   window.location = window.location.origin;
+}
+
+/* Video on page load */
+console.log("video on page load");
+let vopl = document.createElement("div");
+vopl.setAttribute("class", "vopl-container");
+vopl.innerHTML =  '<div class="video-block">'+
+      '<div class="video-header">'+
+        '<a class="video-close">x</a>'+
+          '<video controls="" name="media">'+
+            '<source src="https://s7d9.scene7.com/is/content/AdobeDemoLab/ContentGenerationwithAEM/CA-AEM.mp4" type="video/mp4">'+
+          '</video>'+
+      '</div>'+
+  '</div>';
+document.getElementsByTagName("body")[0].appendChild(vopl);
+
+
+// Close video on click
+let closeVideo = document.getElementsByClassName("video-close")[0];
+closeVideo.onclick = async function() {
+  console.log("closeVideo btn clicked");
+  document.getElementsByClassName("vopl-container")[0].style.display="none";
 }
