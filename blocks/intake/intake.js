@@ -76,6 +76,10 @@ intakeForm.innerHTML =  '<form class="intake-form">'+
 
 document.getElementsByClassName("intake")[0].getElementsByTagName("p")[0].parentElement.appendChild(intakeForm);
 
+// clear localstorage on page load
+localStorage.removeItem("jsonSummit");
+
+
 // Trigger form submit on button click
 var submitBtn = document.getElementsByClassName("intake-btn")[0];
 
