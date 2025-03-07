@@ -39,7 +39,7 @@ document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagNam
 // Append button
 let emoBtn = document.createElement("a");
 emoBtn.setAttribute("class", "form-button emobtn");
-emoBtn.innerText =  'Task 3: Get started';
+emoBtn.innerText =  'Task 1: Get started';
 document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].parentElement.appendChild(emoBtn);
 
 /* 
@@ -92,7 +92,7 @@ function redirectTo() {
 
   if(radioSelect == "Engage") {
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/insights-dashboard/intelligent", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/account-journeys/browse", '_blank').focus();
     // progress to next tab
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
@@ -100,7 +100,7 @@ function redirectTo() {
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].getElementsByTagName("input")[0].setAttribute("checked", "checked");
 
     document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].innerText = "Now it’s time to analyze your results. You’ve been tasked with identifying key insights for the Bodea campaign. Use the Adobe Journey Optimizer Account Insights Dashboard to assess a comprehensive view of buying group and account metrics and evolve your B2B go-to-market strategy.";
-    emoBtn.innerText = "Task 4: Get started";
+    emoBtn.innerText = "Task 2: Get started";
 
     var sourceList = document.getElementsByClassName("engage-measure-opening")[0].querySelectorAll('picture source');
     sourceList.forEach((source)=> {

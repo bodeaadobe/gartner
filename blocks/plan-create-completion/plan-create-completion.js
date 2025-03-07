@@ -77,10 +77,8 @@ pccBTN.onclick = async function() {
 // Redirect to next page
 function redirectTo() {
   //let radioSelect = document.querySelector('input[name="pcc"]:checked').value;
-  alert("Thank You!");
   //console.log("radioSelect: ", radioSelect);
   console.log("window.location.origin: ", window.location.origin);
-
   window.location = window.location.origin;
 }
 
