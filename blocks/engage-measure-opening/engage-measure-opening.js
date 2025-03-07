@@ -134,8 +134,8 @@ vopl.setAttribute("class", "vopl-container");
 vopl.innerHTML =  '<div class="video-block">'+
       '<div class="video-header">'+
         '<a class="video-close">x</a>'+
-          '<video controls="" name="media">'+
-            '<source src="https://s7d9.scene7.com/is/content/AdobeDemoLab/ContentGenerationwithAEM/CA-AEM.mp4" type="video/mp4">'+
+          '<video controls="" name="media" muted>'+
+            '<source src="https://images-tv.adobe.com/mpcv3/1229/c6cd2d0f-9be4-4cd4-b725-660c790380b7_1722995334.854x480at800_h264.mp4" type="video/mp4">'+
           '</video>'+
       '</div>'+
   '</div>';
