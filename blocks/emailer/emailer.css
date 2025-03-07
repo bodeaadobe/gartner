@@ -10,6 +10,7 @@
 .emailer a {
   text-decoration: none;
   outline: none;
+  color: #ffffff;
 }
 .emailer picture {
   display: none;
