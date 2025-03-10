@@ -26,30 +26,30 @@ intakeForm.innerHTML =  '<form class="intake-form">'+
             '<div class="intake-heading form-heading">To get started, please fill the fields below. </div>'+
             
             '<div class="form-group">'+
-              '<label for="fname" class="field-label">First Name</label>'+
+              '<label for="fname" class="field-label">First Name*</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="fname" placeholder="Enter your first name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="lname" class="field-label">Last Name</label>'+
+              '<label for="lname" class="field-label">Last Name*</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="lname" placeholder="Enter your last name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="company" class="field-label">Company</label>'+
+              '<label for="company" class="field-label">Company*</label>'+
               '<input type="text" autocomplete="off" class="field-text form-val" name="company" placeholder="Enter your company name" required />'+
             '</div>'+
 
             '<div class="form-group">'+
-              '<label for="bemail" class="field-label">Business email</label>'+
-              '<input type="text" autocomplete="off" class="field-text form-val" name="bemail" placeholder="Enter your mail address" required />'+
+              '<label for="bemail" class="field-label">Business Email*</label>'+
+              '<input type="email" autocomplete="off" class="field-text form-val" name="bemail" placeholder="Enter your mail address" required />'+
             '</div>'+
 
             '<div class="radio-group">'+
               '<label for="bemail" class="group-label">Select the campaign workstream you want to start with.</label>'+
 
               '<div class="radio-row">'+
-                '<input type="radio" id="plan-and-create" name="intake-campaign" value="Plan and Create">'+
+                '<input type="radio" id="plan-and-create" name="intake-campaign" value="Plan and Create" checked="checked">'+
                 '<label for="plan-and-create" class="field-label">'+
                   '<span>Plan and Create</span>'+
                   '<div>Leverage insights to shift your B2B go-to-market strategy, and go on to generate display ads with approved assets.</div>'+
@@ -67,7 +67,7 @@ intakeForm.innerHTML =  '<form class="intake-form">'+
             '</div>'+
             
             '<div class="checkbox-group">'+
-              '<input type="checkbox" id="authorize" name="authorize" value="authorize">'+
+              '<input type="checkbox" id="authorize" name="authorize" value="authorize" checked="checked">'+
               '<label for="authorize" class="field-label">By supplying my contact information, I authorize the <a href="#">Adobe family of companies</a> to contact me with <a href="#">personalized</a> communications about Adobe’s products and services.  See our <a href="#">Privacy Policy</a> for more details or to opt-out at any time</label>'+
             '</div>'+
 
@@ -78,6 +78,7 @@ document.getElementsByClassName("intake")[0].getElementsByTagName("p")[0].parent
 
 // clear localstorage on page load
 localStorage.removeItem("jsonSummit");
+localStorage.removeItem("video-played");
 
 
 // Trigger form submit on button click
@@ -90,36 +91,52 @@ submitBtn.onclick = async function() {
   let lname = document.getElementsByName("lname")[0].value;
   let company = document.getElementsByName("company")[0].value;
   let bemail = document.getElementsByName("bemail")[0].value;
-  let radioSelect = document.querySelector('input[name="intake-campaign"]:checked').value;
+  //let radioSelect = document.querySelector('input[name="intake-campaign"]:checked').value;
 
-  // creating json to be submitted on finish click
-  let jsonSummit = {};
-  jsonSummit.email = bemail;
-  jsonSummit.fname = fname;
-  jsonSummit.lname = lname;
-  jsonSummit.companyname = company;
-  jsonSummit["plan and create"] = false;
-  jsonSummit["engage and measure"] = false;
-  //jsonSummit["plan and create"] = radioSelect=="Plan and Create"?true:false;
-  //jsonSummit["engage and measure"] = radioSelect=="Engage and Measure"?true:false;
+  if(fname == "" || lname == "" || company == "" || bemail == "") {
+    var form = document.querySelector('form')
+    form.reportValidity();
+    return;
+  } else {
+    // creating json to be submitted on finish click
+    let jsonSummit = {};
+    jsonSummit.email = bemail;
+    jsonSummit.fname = fname;
+    jsonSummit.lname = lname;
+    jsonSummit.companyname = company;
+    jsonSummit["plan and create"] = false;
+    jsonSummit["engage and measure"] = false;
+    
+    localStorage.setItem("jsonSummit", JSON.stringify(jsonSummit));
+    console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
+    
+    // Get call to submit intake form data
+    let url = "https://hook.fusion.adobe.com/na86ylnnkhopr6bahppq1qkqswhp4xk6?email="+bemail+"&firstName="+fname+"&lastName="+lname+"&company="+company;
+    handleAjaxCall(url, "GET");
 
-  localStorage.setItem("jsonSummit", JSON.stringify(jsonSummit));
-  console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
-
-  // Get call to submit intake form data
-  let url = "https://hook.fusion.adobe.com/na86ylnnkhopr6bahppq1qkqswhp4xk6?email="+bemail+"&firstName="+fname+"&lastName="+lname+"&company="+company;
-
-  let xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function()
-  {
-    if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
-    {
-      console.log("Post Call Response: ", xmlHttp.responseText);
-      redirectTo();
-    }
   }
-  xmlHttp.open("get", url); 
-  xmlHttp.send(null);
+}
+
+function handleAjaxCall(url, method){
+  console.log("inside handleGetJson");
+  fetch(url, {
+    method: method,
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    mode: 'no-cors' // Add no-cors mode to avoid preflight
+  })
+  //.then((response) => response.json())
+  .then((response) => response)
+  .then((body) => {
+    console.log("Call Response: ", body);
+    redirectTo();
+  })
+  .catch(err => {
+    alert("There was error in ajax call " + err);
+    redirectTo();
+  });
 }
 
 // Redirect to next page

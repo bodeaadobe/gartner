@@ -71,7 +71,34 @@ let pccBTN = document.getElementsByClassName("pccbtn")[0];
 
 pccBTN.onclick = async function() {
   console.log("pccBTN btn clicked");
-  redirectTo();
+
+  // Get call to submit intake form data
+  let url = "https://440115-191salmonscallop.adobeioruntime.net/api/v1/web/apoproxy/summit25B2B";
+  let jsonData = localStorage.getItem("jsonSummit");
+  handleAjaxCall(url, "POST", jsonData);
+}
+
+function handleAjaxCall(url, method, jsonData){
+  console.log("inside handleGetJson");
+  fetch(url, {
+    method: method,
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: jsonData,
+    mode: 'no-cors' // Add no-cors mode to avoid preflight
+  })
+  //.then((response) => response.json())
+  .then((response) => response)
+  .then((body) => {
+    console.log("Call Response: ", body);
+    redirectTo();
+  })
+  .catch(err => {
+    alert("There was error in ajax call " + err);
+    redirectTo();
+  });
 }
 
 // Redirect to next page
@@ -94,8 +121,17 @@ vopl.innerHTML =  '<div class="video-block">'+
           '</video>'+
       '</div>'+
   '</div>';
+
+
+let videoPlayed = localStorage.getItem("video-played");
+console.log("videoPlayed: ", videoPlayed);
 document.getElementsByTagName("body")[0].appendChild(vopl);
 
+if(videoPlayed == "true") {
+  document.getElementsByClassName("vopl-container")[0].style.display="none";
+} else {
+  localStorage.setItem("video-played", "true");
+}
 
 // Close video on click
 let closeVideo = document.getElementsByClassName("video-close")[0];

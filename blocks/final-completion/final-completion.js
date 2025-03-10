@@ -48,8 +48,36 @@ let fcBTN = document.getElementsByClassName("fcbtn")[0];
 
 fcBTN.onclick = async function() {
   console.log("fcBTN btn clicked");
-  redirectTo();
+
+  // Get call to submit intake form data
+  let url = "https://440115-191salmonscallop.adobeioruntime.net/api/v1/web/apoproxy/summit25B2B";
+  let jsonData = localStorage.getItem("jsonSummit");
+  handleAjaxCall(url, "POST", jsonData);
 }
+
+function handleAjaxCall(url, method, jsonData){
+  console.log("inside handleGetJson");
+  fetch(url, {
+    method: method,
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: jsonData,
+    mode: 'no-cors' // Add no-cors mode to avoid preflight
+  })
+  //.then((response) => response.json())
+  .then((response) => response)
+  .then((body) => {
+    console.log("Call Response: ", body);
+    redirectTo();
+  })
+  .catch(err => {
+    alert("There was error in ajax call " + err);
+    redirectTo();
+  });
+}
+
 
 // Redirect to next page
 function redirectTo() {

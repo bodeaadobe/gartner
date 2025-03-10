@@ -115,7 +115,7 @@ function redirectTo() {
     console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
 
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/insights-dashboard/intelligent", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/accounts/8", '_blank').focus();
     
     // progress to next page
     if(jsonToUpdate["plan and create"]) {
@@ -139,8 +139,17 @@ vopl.innerHTML =  '<div class="video-block">'+
           '</video>'+
       '</div>'+
   '</div>';
+
+
+let videoPlayed = localStorage.getItem("video-played");
+console.log("videoPlayed: ", videoPlayed);
 document.getElementsByTagName("body")[0].appendChild(vopl);
 
+if(videoPlayed == "true") {
+  document.getElementsByClassName("vopl-container")[0].style.display="none";
+} else {
+  localStorage.setItem("video-played", "true");
+}
 
 // Close video on click
 let closeVideo = document.getElementsByClassName("video-close")[0];
