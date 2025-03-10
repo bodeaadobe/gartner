@@ -41,7 +41,7 @@ emailerBlock.innerHTML =  '<table width="100%" border="0" cellspacing="0" cellpa
                   '<td align="left" valign="middle" >'+
                      '<div class="contentEditableContainer contentTextEditable" style="display:inline-block;padding:5px 0;">'+
                       '<div class="contentEditable" >'+
-                        '<img src="../../icons/summit-emailer-logo.png" alt="Compagnie logo" data-default="placeholder" height="40px">'+
+                        '<img src="../../icons/summit-emailer-logo.png" alt="Compagnie logo" data-default="placeholder" height="40px" class="summit-logo">'+
                       '</div>'+
                     '</div>'+
                   '</td>'+
