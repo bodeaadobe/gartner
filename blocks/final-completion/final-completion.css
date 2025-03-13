@@ -32,25 +32,25 @@
 }
 
 .final-completion .final-completion-body {
-  width: 50%;
-  min-width: 600px;
+  width: 55%;
+  min-width: 500px;
   border-radius: 8px;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   z-index: 1111;
   background: #ffffff;
-  padding: 40px 50px;
+  padding: 30px 40px;
   box-sizing: border-box;
   box-shadow: 0 3px 20px #00000010;
   text-align: center;
 }
 
 .final-completion .final-completion-body h3 {
-  font-size: 40px;
+  font-size: 35px;
   margin: 0 0 10px;
   color: var(--dark-color);
 }
@@ -90,11 +90,48 @@
 
 .fc-form .form-subheading {
   font-size: 16px;
-  margin: 10px 0;
+  margin: 25px 0;
   line-height: 20px;
   color: var(--dark-color);
   font-family: var(--heading-font-family);
 }
+
+.form-qrcode {
+  background-color: #efefef;
+  border-radius: 8px;
+  border: 1px solid #DADADA;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-qrcode > .fc-qrcode-text-block {
+  flex: 50%;
+  padding-right: 8%;
+}
+.form-qrcode .fc-qrcode-text {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 20px;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+}
+.form-qrcode .fc-qrcode-text-bold {
+  font-weight: bold;
+}
+.form-qrcode .fc-qrcode-img {
+  height: auto !important;
+  width: 130px !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+
 
 
 .fc-form .form-group {
@@ -123,11 +160,13 @@
 }
 .fc-form .form-button {
   display: block;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #000000;
+  color: #000000;
   width: fit-content;
-  font-size: 15px;
-  padding: 8px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 30px;
   border-radius: 40px;
   margin: 15px auto 0;
   text-decoration: none;
@@ -185,7 +224,7 @@
   display: none;
 }
 .fc-form .radio-select {
-  width: 46%;
+  width: 48%;
   margin-right: 4%;
   display: inline-block;
   text-align: center;
@@ -219,4 +258,7 @@
   position: absolute;
   right: -6px;
   top: -6px;
+}
+.fc-form .radio-select:last-child {
+  margin-right: 0;
 }

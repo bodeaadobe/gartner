@@ -35,7 +35,20 @@ fcForm.innerHTML =  '<form class="fc-form">'+
               '</label>'+
             '</div>'+
 
-            '<div class="fc-subheading form-subheading">Grab your exclusive B2B giveaway!</div>'+
+            '<div class="fc-qrcode form-qrcode">'+
+              '<div class="fc-qrcode-text-block">'+
+                '<div class="fc-qrcode-text">'+
+                  'You have earned special access to Omdia\'s analyst report: <br />'+
+                  '<i>Adobe\'s transformation of B2B CX marks a golden opportunity for unified CX orchestration.</i>'+
+                '</div>'+
+                '<div class="fc-qrcode-text-bold">'+
+                  'Scan the QR code to read it now!'+
+                '</div>'+
+              '</div>'+
+              '<img src="../icons/summit-qr.png" class="fc-qrcode-img" alt="Summit 2025 QR Code" />'+
+            '</div>'+
+
+            '<div class="fc-subheading form-subheading">Don\'t forget to grab your exclusive B2B giveaway!</div>'+
 
             '<a class="form-button fcbtn">Finish</a>'+
           '</form>';
