@@ -134,7 +134,7 @@ function handleAjaxCall(url, method){
     redirectTo();
   })
   .catch(err => {
-    alert("There was error in ajax call " + err);
+    console.log("There was error in ajax call " + err);
     redirectTo();
   });
 }

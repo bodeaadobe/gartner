@@ -93,7 +93,7 @@ function redirectTo() {
 
   if(radioSelect == "Plan") {
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/buying-groups/3", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/buying-groups/browse", '_blank').focus();
     // progress to next tab
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
