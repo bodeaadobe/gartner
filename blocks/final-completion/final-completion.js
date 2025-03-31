@@ -48,8 +48,6 @@ fcForm.innerHTML =  '<form class="fc-form">'+
               '<img src="../icons/summit-qr.png" class="fc-qrcode-img" alt="Summit 2025 QR Code" />'+
             '</div>'+
 
-            '<div class="fc-subheading form-subheading">Don\'t forget to grab your exclusive B2B giveaway!</div>'+
-
             '<a class="form-button fcbtn">Finish</a>'+
           '</form>';
 

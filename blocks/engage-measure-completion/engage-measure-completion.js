@@ -39,7 +39,6 @@ emcForm.innerHTML =  '<form class="emc-form">'+
             '</div>'+
 
             '<div class="emc-subheading form-subheading">Or click the finish button below to exit the experience.</div>'+
-            '<div class="emc-subheading form-subheading">Don not miss the chance to grab your exclusive giveaway upon completing both the tasks.</div>'+
 
             '<a class="form-button emcbtn">Finish</a>'+
           '</form>';

@@ -39,7 +39,6 @@ pccForm.innerHTML =  '<form class="pcc-form">'+
             '</div>'+
 
             '<div class="pcc-subheading form-subheading">Or click the finish button below to exit the experience.</div>'+
-            '<div class="pcc-subheading form-subheading">Do not miss the chance to grab your exclusive giveaway upon completing both the tasks.</div>'+
 
             '<a class="form-button pccbtn">Finish</a>'+
           '</form>';
