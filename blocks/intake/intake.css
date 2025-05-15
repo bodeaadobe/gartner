@@ -45,6 +45,7 @@
   font-size: 23px;
   margin: 0 0 10px;
   color: var(--dark-color);
+  background-color: #b5b5ff;
 }
 
 .intake .intake-body p {
