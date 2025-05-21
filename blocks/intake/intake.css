@@ -21,6 +21,7 @@
   min-height: 900px;
   object-fit: cover;
   object-position: top left;
+  border-bottom: 15px solid #36B28C;
 }
 
 .intake .intake-image {
