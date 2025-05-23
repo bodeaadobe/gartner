@@ -36,9 +36,10 @@ fccForm.innerHTML =  '<form class="fcc-form">'+
                 '<span>Engage & Measure</span>'+
               '</label>'+
             '</div>'+
-
-            '<a class="form-button neacbtn">Now Explore as a Creator</a>'+
-            '<a class="form-button mtnwbtn">Move to the Next Workstream</a>'+
+            '<div class="form-button-container">'+ 
+              '<a class="form-button neacbtn">Now Explore as a Creator</a>'+
+              '<a class="form-button mtnwbtn">Move to the Next Workstream</a>'+
+            '</div>'+
           '</form>';
 
 document.getElementsByClassName("final-completion-creator")[0].getElementsByTagName("p")[0].parentElement.appendChild(fccForm);
