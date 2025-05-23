@@ -31,13 +31,14 @@ fccForm.innerHTML =  '<form class="fcc-form">'+
                 '<input type="checkbox" name="pc-checkbox" autocomplete="off" value="Plan & Create" disabled="disabled" checked="checked" />'+
                 '<span>Plan & Create</span>'+
               '</label>'+
-              '<label class="btn radio-select active">'+
+              '<label class="btn radio-select disabled">'+
                 '<input type="checkbox" name="em-checkbox" autocomplete="off" value="Engage & Measure" disabled="disabled" checked="checked" />'+
                 '<span>Engage & Measure</span>'+
               '</label>'+
             '</div>'+
 
-            '<a class="form-button fccbtn">Finish</a>'+
+            '<a class="form-button neacbtn">Now Explore as a Creator</a>'+
+            '<a class="form-button mtnwbtn">Move to the Next Workstream</a>'+
           '</form>';
 
 document.getElementsByClassName("final-completion-creator")[0].getElementsByTagName("p")[0].parentElement.appendChild(fccForm);
@@ -55,17 +56,36 @@ radioBtn.forEach(element => {
 */
 
 
-// Trigger form submit on button click
-let fccBTN = document.getElementsByClassName("fccbtn")[0];
+// Trigger form submit on neacbtn click
+let neacBTN = document.getElementsByClassName("neacbtn")[0];
 
-fccBTN.onclick = async function() {
-  console.log("fccBTN btn clicked");
+neacBTN.onclick = async function() {
+  console.log("neacBTN btn clicked");
+
+  // open express link in new tab
+  window.open("https://www.adobe.com/express/", '_blank').focus();
 
   // Get call to submit intake form data
   let url = "https://440115-191salmonscallop.adobeioruntime.net/api/v1/web/apoproxy/summit25B2B";
   let jsonData = localStorage.getItem("jsonSummit");
   handleAjaxCall(url, "POST", jsonData);
 }
+
+// Trigger form submit on mtnwbtn click
+let mtnwBTN = document.getElementsByClassName("mtnwbtn")[0];
+
+mtnwBTN.onclick = async function() {
+  console.log("mtnwBTN btn clicked");
+
+  // open genstudio link in new tab
+  window.open("https://business.adobe.com/products/genstudio-for-performance-marketing.html", '_blank').focus();
+
+  // Get call to submit intake form data
+  let url = "https://440115-191salmonscallop.adobeioruntime.net/api/v1/web/apoproxy/summit25B2B";
+  let jsonData = localStorage.getItem("jsonSummit");
+  handleAjaxCall(url, "POST", jsonData);
+}
+
 
 function handleAjaxCall(url, method, jsonData){
   console.log("inside handleGetJson");

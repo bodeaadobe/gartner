@@ -78,6 +78,10 @@ radioBtn.forEach(element => {
 });
  */
 
+
+
+
+
 // Trigger form submit on button click
 let pcoBTN = document.getElementsByClassName("pcobtn")[0];
 
@@ -100,8 +104,13 @@ function redirectTo() {
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].classList.add("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].getElementsByTagName("input")[0].setAttribute("checked", "checked");
 
-    document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].innerText = "You’re a performance marketer tasked with launching a display campaign to increase coverage for finance stakeholders. Use Adobe GenStudio for Performance Marketing to create ads from pre-approved assets in Adobe Express and Content Hub. Review for brand compliance in a matter of seconds and publish in record time.";
-    pcoBTN.innerText = "Task 2: Get started";
+    document.getElementsByClassName("plan-create-opening")[0].getElementsByTagName("p")[0].innerHTML = "<div class='pco-role-select'>Select your Role:</div> <div class='pco-role-title'>CREATOR</div> <div class='pco-role-text'>You've been tasked with creating exclusive event assets with the brand kit that corporate marketing has provided.</div> <a class='form-button creator-btn'>Get Started</a> <div class='pco-role-title'>MARKETER</div> <div class='pco-role-text'>You've been tasked with launching a LinkedIn campaign to increase coverage for finance stakeholders.</div>";
+    pcoBTN.innerText = "Get started";
+
+    // Adding event listener to creator button for creator role
+    let creatorBtn = document.getElementsByClassName("creator-btn")[0];
+    creatorBtn.addEventListener('click', creatorClickFunc, false);
+    
 
     var sourceList = document.getElementsByClassName("plan-create-opening")[0].querySelectorAll('picture source');
     sourceList.forEach((source)=> {
@@ -112,6 +121,7 @@ function redirectTo() {
     // Update jsonSummit on local storage
     let jsonToUpdate = JSON.parse(localStorage.getItem("jsonSummit"));
     jsonToUpdate["plan and create"] = true;
+    jsonToUpdate["role"] = "marketer";
     localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
     console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
 
@@ -125,4 +135,18 @@ function redirectTo() {
       window.location = window.location.origin+"/plan-create-completion";
     }
   }
+}
+
+
+
+// Trigger Creator button click
+let creatorClickFunc = async function() {
+  console.log("creatorBtn clicked");
+  // Update jsonSummit on local storage
+  let jsonToUpdate = JSON.parse(localStorage.getItem("jsonSummit"));
+  jsonToUpdate["role"] = "creator";
+  localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
+  console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
+
+  window.location = window.location.origin+"/final-completion-creator";
 }

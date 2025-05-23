@@ -201,6 +201,13 @@
   color: #B1B1B1;
   border: 1px solid #DADADA;
 }
+.fcc-form .radio-select.disabled {
+  background-color: #E6E6E6;
+  border-radius: 8px;
+  color: #B1B1B1;
+  border: 1px solid #DADADA;
+  cursor: not-allowed;
+}
 
 .fcc-form .radio-select.active::after {
   content: "";

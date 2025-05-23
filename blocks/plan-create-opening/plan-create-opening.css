@@ -68,7 +68,7 @@
 }
 
 .plan-create-opening .plan-create-opening-body p {
-  margin: 40px 0;
+  margin: 30px 0 0;
   font-size: 18px;
   line-height: 24px;
   font-family: var(--heading-font-family);
@@ -120,7 +120,28 @@
   font-size: 15px;
   padding: 7px 24px;
   border-radius: 40px;
-  margin: 50px 0 0;
+  margin: 10px 0 40px;
   text-decoration: none;
   cursor: pointer;
 }
+
+
+.plan-create-opening-body .pco-role-select {
+  padding-bottom: 10px;
+}
+
+.plan-create-opening-body .pco-role-title {
+  color: #36B28C;
+  padding-bottom: 5px;
+}
+
+.plan-create-opening-body .pco-role-text {
+  padding-bottom: 10px;
+}
+
+.plan-create-opening-body .creator-btn {
+  
+}
+
+
+

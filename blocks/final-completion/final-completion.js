@@ -60,7 +60,7 @@ let fcBTN = document.getElementsByClassName("fcbtn")[0];
 fcBTN.onclick = async function() {
   console.log("fcBTN btn clicked");
 
-  // Get call to submit intake form data
+  // Post call to submit intake form data
   let url = "https://440115-191salmonscallop.adobeioruntime.net/api/v1/web/apoproxy/summit25B2B";
   let jsonData = localStorage.getItem("jsonSummit");
   handleAjaxCall(url, "POST", jsonData);

@@ -99,7 +99,7 @@ function redirectTo() {
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].classList.add("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[1].getElementsByTagName("input")[0].setAttribute("checked", "checked");
 
-    document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].innerText = "Now it’s time to analyze your results. You’ve been tasked with identifying key insights for the Bodea campaign. Use the Adobe Journey Optimizer Account Insights Dashboard to assess a comprehensive view of buying group and account metrics and evolve your B2B go-to-market strategy.";
+    document.getElementsByClassName("engage-measure-opening")[0].getElementsByTagName("p")[0].innerText = "Now it's time to analyze your results. You've been tasked with identifying key insights for the cross-sell campaign. Use Adobe Customer Journey Analytics B2B Edition to deliver actionable insights across stakeholders, opportunities, buying groups and accounts to inform next-best actions for your marketing and sales teams.";
     emoBtn.innerText = "Task 2: Get started";
 
     var sourceList = document.getElementsByClassName("engage-measure-opening")[0].querySelectorAll('picture source');
