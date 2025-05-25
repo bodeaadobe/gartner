@@ -81,6 +81,10 @@ if(enableCheck) {
     document.getElementsByClassName("explorebtn")[0].textContent = "Now Explore as a Creator";
   } else if(enableCheck["role"] == "creator") {
     document.getElementsByClassName("explorebtn")[0].textContent = "Now Explore as a Marketer";
+  } else if(enableCheck["role"] == null) {
+    enableCheck["role"] = "marketer";
+    localStorage.setItem("jsonSummit", JSON.stringify(enableCheck));
+    document.getElementsByClassName("explorebtn")[0].textContent = "Now Explore as a Creator";
   }
 
 }
@@ -118,7 +122,7 @@ exploreBTN.onclick = async function() {
       jsonToUpdate["role"] = "creator";
       localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
       window.open("https://new.express.adobe.com/brands/urn:aaid:sc:US:4a5f6329-5a5f-571c-87f4-f173aceeb975", '_blank').focus();
-    } else if(enableCheck["role"] == "creator") {
+    } else if(jsonToUpdate["role"] == "creator") {
       document.getElementsByClassName("explorebtn")[0].textContent = "Now Explore as a Creator";
       jsonToUpdate["role"] = "marketer";
       localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
