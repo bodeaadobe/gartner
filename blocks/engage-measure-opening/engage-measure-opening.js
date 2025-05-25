@@ -92,7 +92,7 @@ function redirectTo() {
 
   if(radioSelect == "Engage") {
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/account-journeys/browse", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@acxpevangelist/sname:prod/journey-optimizer-b2b/account-journeys/13", '_blank').focus();
     // progress to next tab
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
@@ -115,46 +115,46 @@ function redirectTo() {
     console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
 
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/accounts/8", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@acxpevangelist/platform/analytics/#/workspace/edit/682ce47d3cfac62d78f7a206", '_blank').focus();
     
     // progress to next page
     if(jsonToUpdate["plan and create"]) {
       window.location = window.location.origin+"/final-completion";
     } else {
-      window.location = window.location.origin+"/engage-measure-completion";
+      window.location = window.location.origin+"/pre-final-completion";
     }
   }
 }
 
 
 /* Video on page load */
-console.log("video on page load");
-let vopl = document.createElement("div");
-vopl.setAttribute("class", "vopl-container");
-vopl.innerHTML =  '<div class="video-block">'+
+console.log("engage & measure video on page load");
+let evopl = document.createElement("div");
+evopl.setAttribute("class", "evopl-container");
+evopl.innerHTML =  '<div class="video-block">'+
       '<div class="video-header">'+
         '<a class="video-close">x</a>'+
           '<video controls="" name="media" muted>'+
-            '<source src="../icons/Summit2025-Engage-Measure.mp4" type="video/mp4">'+
+            '<source src="../icons/Gartner-Engage-Measure.mp4" type="video/mp4">'+
           '</video>'+
       '</div>'+
   '</div>';
 
 
-let videoPlayed = localStorage.getItem("video-played");
-console.log("videoPlayed: ", videoPlayed);
-document.getElementsByTagName("body")[0].appendChild(vopl);
+let engageVideoPlayed = localStorage.getItem("engage-video-played");
+console.log("engageVideoPlayed: ", engageVideoPlayed);
+document.getElementsByTagName("body")[0].appendChild(evopl);
 
-if(videoPlayed == "true") {
-  document.getElementsByClassName("vopl-container")[0].style.display="none";
+if(engageVideoPlayed == "true") {
+  document.getElementsByClassName("evopl-container")[0].style.display="none";
 } else {
-  localStorage.setItem("video-played", "true");
+  localStorage.setItem("engage-video-played", "true");
 }
 
 // Close video on click
 let closeVideo = document.getElementsByClassName("video-close")[0];
 closeVideo.onclick = async function() {
   console.log("closeVideo btn clicked");
-  document.getElementsByClassName("vopl-container")[0].style.display="none";
+  document.getElementsByClassName("evopl-container")[0].style.display="none";
 }
 

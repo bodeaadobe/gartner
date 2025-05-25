@@ -97,7 +97,7 @@ function redirectTo() {
 
   if(radioSelect == "Plan") {
     // open link1 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/sname:ajob2b-summit25/journey-optimizer-b2b/buying-groups/browse", '_blank').focus();
+    window.open("https://experience.adobe.com/#/@acxpevangelist/sname:prod/journey-optimizer-b2b/buying-groups/browse", '_blank').focus();
     // progress to next tab
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].classList.remove("active");
     document.getElementsByClassName("btn-group-toggle")[0].getElementsByClassName("radio-select")[0].getElementsByTagName("input")[0].removeAttribute("checked");
@@ -125,14 +125,14 @@ function redirectTo() {
     localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
     console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
 
-    // open link2 in new tab
-    window.open("https://experience.adobe.com/#/@adobedemoamericas275/genstudio/create", '_blank').focus();
+    // open link2 (marketer) in new tab
+    window.open("https://experience.adobe.com/#/@acxpevangelist/genstudio/", '_blank').focus();
     
     // progress to next page
     if(jsonToUpdate["engage and measure"]) {
       window.location = window.location.origin+"/final-completion";
     } else {
-      window.location = window.location.origin+"/plan-create-completion";
+      window.location = window.location.origin+"/pre-final-completion";
     }
   }
 }
@@ -142,11 +142,21 @@ function redirectTo() {
 // Trigger Creator button click
 let creatorClickFunc = async function() {
   console.log("creatorBtn clicked");
+
   // Update jsonSummit on local storage
   let jsonToUpdate = JSON.parse(localStorage.getItem("jsonSummit"));
+  jsonToUpdate["plan and create"] = true;
   jsonToUpdate["role"] = "creator";
   localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
   console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));
 
-  window.location = window.location.origin+"/final-completion-creator";
+  // open link3 (creator) in new tab
+  window.open("https://new.express.adobe.com/brands/urn:aaid:sc:US:4a5f6329-5a5f-571c-87f4-f173aceeb975", '_blank').focus();
+
+   // progress to next page
+   if(jsonToUpdate["engage and measure"]) {
+    window.location = window.location.origin+"/final-completion";
+  } else {
+    window.location = window.location.origin+"/pre-final-completion";
+  }
 }

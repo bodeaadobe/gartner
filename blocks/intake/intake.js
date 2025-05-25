@@ -78,7 +78,8 @@ document.getElementsByClassName("intake")[0].getElementsByTagName("p")[0].parent
 
 // clear localstorage on page load
 localStorage.removeItem("jsonSummit");
-localStorage.removeItem("video-played");
+localStorage.removeItem("plan-video-played");
+localStorage.removeItem("engage-video-played");
 
 
 // Trigger form submit on button click

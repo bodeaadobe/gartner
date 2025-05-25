@@ -1,0 +1,280 @@
+
+.pre-final-completion a {
+  text-decoration: none;
+  outline: none;
+}
+
+.pre-final-completion > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.pre-final-completion > ul > li {
+  background-color: var(--background-color);
+}
+
+.pre-final-completion > ul > li img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.pre-final-completion > ul > li picture::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, .1) 100%);
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.pre-final-completion .pre-final-completion-image {
+  line-height: 0;
+}
+
+.pre-final-completion .pre-final-completion-body {
+  margin: 20px;
+  width: 40%;
+  min-width: 600px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 11;
+  background: #ffffff;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+.pre-final-completion .pre-final-completion-body h3 {
+  font-size: 40px;
+  margin: 0 0 10px;
+  color: var(--dark-color);
+}
+
+.pre-final-completion .pre-final-completion-body p {
+  margin: 10px 0 15px;
+  font-size: 14px;
+}
+
+
+
+.pfc-container {
+  display: block;
+  border-top: 1px solid #DEDEDE;
+}
+
+.pfc-container .pfc-form {
+  display: block;
+}
+
+.pfc-form .form-heading {
+  font-size: 18px;
+  margin: 15px 0 5px;
+  line-height: 24px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+}
+
+.pfc-form .form-subheading {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 20px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+}
+
+
+.pfc-form .form-group {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.pfc-form .field-label {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 20px 0 5px;
+}
+
+.pfc-form .field-text {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #DEDEDE;
+  border-radius: 6px;
+
+}
+
+.pfc-form .form-button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.pfc-form .form-button {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  width: fit-content;
+  font-size: 15px;
+  padding: 8px 15px;
+  border-radius: 40px;
+  margin: 20px auto;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.pfc-form .form-button.mtnwbtn {
+  background-color: #36B28C;
+}
+
+
+.pfc-form .radio-group {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pfc-form .radio-group .group-label {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  padding: 20px 0 5px;
+}
+.pfc-form .radio-group .field-label {
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
+  vertical-align: middle;
+}
+.pfc-form .radio-group .field-label span {
+  display: inline-block;
+  font-size: 16px;
+  color: var(--dark-color);
+}
+.pfc-form .radio-group .field-label div {
+  display: inline-block;
+  font-size: 14px;
+  color:var(--text-color);
+}
+
+
+.pfc-form .checkbox-group {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pfc-form .checkbox-group .field-label {
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+
+.pfc-form .btn-group-toggle {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  gap: 20px;
+}
+.pfc-form input {
+  display: none;
+}
+.pfc-form .radio-select {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  line-height: 90px;
+  font-family: var(--heading-font-family);
+  color: #727272;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #222222;
+  border: 1px solid #DADADA;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.pfc-form .radio-select.active {
+  background-color: #E6E6E6;
+  border-radius: 8px;
+  color: #B1B1B1;
+  border: 1px solid #DADADA;
+  cursor: not-allowed;
+}
+.pfc-form .radio-select.disabled {
+  background-color: #E6E6E6;
+  border-radius: 8px;
+  color: #B1B1B1;
+  border: 1px solid #DADADA;
+  cursor: not-allowed;
+}
+
+.pfc-form .radio-select.active::after {
+  content: "";
+  background-image: url("../../icons/green-tick.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  display:inline-block;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+}
+
+
+.pvopl-container {
+  display: block;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1111;
+}
+.pvopl-container .video-block {
+  background-color: #fff;
+  padding: 25px;
+  width: 75%;
+  min-width: 500px;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 5%;
+  position: relative;
+}
+.pvopl-container .video-block .video-header .video-close {
+  font-size: 25px;
+  line-height: 20px;
+  color: #000000;
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  float: right;
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 7px;
+}
+.pvopl-container .video-block .video-header video {
+  width: 100%;
+  height: auto;
+}

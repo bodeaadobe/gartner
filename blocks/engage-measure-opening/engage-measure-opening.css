@@ -128,7 +128,7 @@
 
 
 
-.vopl-container {
+.evopl-container {
   display: block;
   background: rgba(0,0,0,0.5);
   position: fixed;
@@ -138,7 +138,7 @@
   height: 100%;
   z-index: 1111;
 }
-.vopl-container .video-block {
+.evopl-container .video-block {
   background-color: #fff;
   padding: 25px;
   width: 75%;
@@ -149,7 +149,7 @@
   margin-top: 5%;
   position: relative;
 }
-.vopl-container .video-block .video-header .video-close {
+.evopl-container .video-block .video-header .video-close {
   font-size: 25px;
   line-height: 20px;
   color: #000000;
@@ -162,7 +162,7 @@
   top: 2px;
   right: 7px;
 }
-.vopl-container .video-block .video-header video {
+.evopl-container .video-block .video-header video {
   width: 100%;
   height: auto;
 }
