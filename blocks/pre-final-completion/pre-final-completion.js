@@ -117,11 +117,13 @@ exploreBTN.onclick = async function() {
       document.getElementsByClassName("explorebtn")[0].textContent = "Explore as a Marketer";
       jsonToUpdate["role"] = "creator";
       localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
+      location.reload();
       window.open("https://new.express.adobe.com/brands/urn:aaid:sc:US:4a5f6329-5a5f-571c-87f4-f173aceeb975", '_blank').focus();
     } else if(jsonToUpdate["role"] == "creator") {
       document.getElementsByClassName("explorebtn")[0].textContent = "Explore as a Creator";
       jsonToUpdate["role"] = "marketer";
       localStorage.setItem("jsonSummit", JSON.stringify(jsonToUpdate));
+      location.reload();
       window.open("https://experience.adobe.com/#/@acxpevangelist/genstudio/", '_blank').focus();
     }
   }

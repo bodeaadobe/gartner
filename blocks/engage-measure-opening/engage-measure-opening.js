@@ -144,9 +144,9 @@ evopl.innerHTML =  '<div class="video-block">'+
 let videoPlayed = localStorage.getItem("video-played");
 console.log("videoPlayed: ", videoPlayed);
 document.getElementsByTagName("body")[0].appendChild(evopl);
-let enableCheck = JSON.parse(localStorage.getItem("jsonSummit"));
-
-if(videoPlayed == "true" || enableCheck["role"] == "creator") {
+//let enableCheck = JSON.parse(localStorage.getItem("jsonSummit"));
+//if(videoPlayed == "true" || enableCheck["role"] == "creator") {
+if(videoPlayed == "true") {
   document.getElementsByClassName("evopl-container")[0].style.display="none";
 } else {
   localStorage.setItem("video-played", "true");
