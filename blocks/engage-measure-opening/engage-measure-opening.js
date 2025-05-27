@@ -141,14 +141,15 @@ evopl.innerHTML =  '<div class="video-block">'+
   '</div>';
 
 
-let engageVideoPlayed = localStorage.getItem("engage-video-played");
-console.log("engageVideoPlayed: ", engageVideoPlayed);
+let videoPlayed = localStorage.getItem("video-played");
+console.log("videoPlayed: ", videoPlayed);
 document.getElementsByTagName("body")[0].appendChild(evopl);
+let enableCheck = JSON.parse(localStorage.getItem("jsonSummit"));
 
-if(engageVideoPlayed == "true") {
+if(videoPlayed == "true" || enableCheck["role"] == "creator") {
   document.getElementsByClassName("evopl-container")[0].style.display="none";
 } else {
-  localStorage.setItem("engage-video-played", "true");
+  localStorage.setItem("video-played", "true");
 }
 
 // Close video on click

@@ -78,8 +78,7 @@ document.getElementsByClassName("intake")[0].getElementsByTagName("p")[0].parent
 
 // clear localstorage on page load
 localStorage.removeItem("jsonSummit");
-localStorage.removeItem("plan-video-played");
-localStorage.removeItem("engage-video-played");
+localStorage.removeItem("video-played");
 
 
 // Trigger form submit on button click
@@ -107,6 +106,7 @@ submitBtn.onclick = async function() {
     jsonSummit.companyname = company;
     jsonSummit["plan and create"] = false;
     jsonSummit["engage and measure"] = false;
+    jsonSummit.role = "marketer";
     
     localStorage.setItem("jsonSummit", JSON.stringify(jsonSummit));
     console.log("jsonSummit: ", JSON.parse(localStorage.getItem("jsonSummit")));

@@ -81,10 +81,6 @@ if(enableCheck) {
     document.getElementsByClassName("explorebtn")[0].textContent = "Explore as a Creator";
   } else if(enableCheck["role"] == "creator") {
     document.getElementsByClassName("explorebtn")[0].textContent = "Explore as a Marketer";
-  } else if(enableCheck["role"] == null) {
-    enableCheck["role"] = "marketer";
-    localStorage.setItem("jsonSummit", JSON.stringify(enableCheck));
-    document.getElementsByClassName("explorebtn")[0].textContent = "Explore as a Creator";
   }
 
 }
@@ -189,14 +185,14 @@ pvopl.innerHTML =  '<div class="video-block">'+
   '</div>';
 
 
-let planVideoPlayed = localStorage.getItem("plan-video-played");
-console.log("planVideoPlayed: ", planVideoPlayed);
+let videoPlayed = localStorage.getItem("video-played");
+console.log("videoPlayed: ", videoPlayed);
 document.getElementsByTagName("body")[0].appendChild(pvopl);
 
-if(planVideoPlayed == "true") {
+if(videoPlayed == "true" || enableCheck["role"] == "creator") {
   document.getElementsByClassName("pvopl-container")[0].style.display="none";
 } else {
-  localStorage.setItem("plan-video-played", "true");
+  localStorage.setItem("video-played", "true");
 }
 
 // Close video on click
