@@ -38,8 +38,9 @@ pfcForm.innerHTML =  '<form class="pfc-form">'+
             '</div>'+
             '<div class="form-button-container">'+ 
               '<a class="form-button explorebtn">Explore as a Creator</a>'+
-              '<a class="form-button finishbtn">Finish</a>'+
+              '<a class="form-button movebtn">Move to the Next Workstream</a>'+
             '</div>'+
+            '<a class="form-button finishbtn">OR Exit the Experience</a>'+
           '</form>';
 
 document.getElementsByClassName("pre-final-completion")[0].getElementsByTagName("p")[0].parentElement.appendChild(pfcForm);
@@ -102,6 +103,18 @@ for(let i=0; i<boxClickables.length; i++) {
 }
 
 
+// Move to next steam on button click
+let moveBTN = document.getElementsByClassName("movebtn")[0];
+moveBTN.onclick = async function() {
+  console.log("movebtn btn clicked");
+
+  let thisCheckboxVal = document.getElementsByClassName("clickable")[0].querySelector('input').value;
+  if(thisCheckboxVal == "Plan & Create") {
+    window.location = window.location.origin+"/plan-create-opening";
+  } else if(thisCheckboxVal == "Engage & Measure") {
+    window.location = window.location.origin+"/engage-measure-opening";
+  }
+}
 
 
 
